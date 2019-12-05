@@ -127,6 +127,51 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btnMinus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(inputView == null){
+                    inputView.setText("");
+                }
+                else {
+                    ValueOne = inputView.getText().toString();
+                    mValueone = Float.parseFloat(inputView.getText()+"");
+                    mSubtract = true;
+                    inputView.setText(null);
+                }
+            }
+        });
+
+        btnMultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(inputView == null){
+                    inputView.setText("");
+                }
+                else {
+                    ValueOne = inputView.getText().toString();
+                    mValueone = Float.parseFloat(inputView.getText()+"");
+                    mMultiplication = true;
+                    inputView.setText(null);
+                }
+            }
+        });
+
+        btnDivision.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(inputView == null){
+                    inputView.setText("");
+                }
+                else {
+                    ValueOne = inputView.getText().toString();
+                    mValueone = Float.parseFloat(inputView.getText()+"");
+                    mDivision = true;
+                    inputView.setText(null);
+                }
+            }
+        });
+
 
 
         btnResult.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +188,30 @@ public class MainActivity extends AppCompatActivity {
                     mAddition=false;
 
                 }
+
+                if(mSubtract = true){
+                    Operator = "-";
+                    operationView.setText(ValueOne+Operator+ValueTwo);
+                    resultView.setText(mValueone-mValueTwo+"");
+                    mSubtract=false;
+
+                }
+
+                if(mMultiplication = true){
+                    Operator = "*";
+                    operationView.setText(ValueOne+Operator+ValueTwo);
+                    resultView.setText(mValueone*mValueTwo+"");
+                    mMultiplication=false;
+
+                }
+
+                if(mDivision = true){
+                    Operator = "/";
+                    operationView.setText(ValueOne+Operator+ValueTwo);
+                    resultView.setText(mValueone/mValueTwo+"");
+                    mDivision=false;
+
+                }
             }
         });
 
@@ -153,11 +222,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String str = inputView.getText().toString();
-                if(str.length()>1){
+                if(str.length()>0){
                     str = str.substring(0, str.length()-1);
                     inputView.setText(str);
                 }
-                if(str.length()<=1){
+                if(str.length()<=0){
                     inputView.setText(null);
                 }
             }
